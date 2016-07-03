@@ -1,0 +1,21 @@
+{
+  "preset": "google",
+  "maximumLineLength": {
+    "value": 160,
+    "allExcept": ["comments", "regex"]
+  },
+  "validateCommentPosition": {
+    "position": "above"
+  },
+  "requirePaddingNewLinesAfterUseStrict": true,
+  "requireBlocksOnNewline": true,
+  "disallowVar": true,
+  "disallowTrailingComma": true,
+  "disallowMixedSpacesAndTabs": true,
+  "excludeFiles": [
+    "public/**",
+    "node_modules/**",
+    "bower_components/**",
+    "docs/**"
+  ]
+}

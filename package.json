@@ -1,0 +1,22 @@
+{
+  "name": "docker-autoheal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "DEBUG=docker-autoheal:* nodemon index.js",
+    "start": "node index",
+    "test": "mocha --timeout 15000 './test/**/*.spec.js'"
+  },
+  "author": "mcasimir (https://github.com/mcasimir)",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "2.2.0",
+    "dockerode": "2.2.10",
+    "node-docker-monitor": "1.0.9"
+  },
+  "devDependencies": {
+    "mocha": "2.5.3",
+    "nodemon": "1.9.2"
+  }
+}

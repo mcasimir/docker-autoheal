@@ -1,0 +1,11 @@
+{
+  "esnext": true,
+  "node": true,
+  "browser": true,
+  "quotmark": "single",
+  "unused": true,
+  "undef": true,
+  "mocha": true,
+  "eqeqeq": true,
+  "maxcomplexity": 10
+}
