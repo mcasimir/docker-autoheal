@@ -19,7 +19,7 @@ module.exports = function containerExec(container, command) {
         let stdout = '';
 
         stream.on('data', function(data) {
-          stdout = stdout + data.toString();
+          stdout += data.toString();
         });
 
         stream.on('error', function(err) {

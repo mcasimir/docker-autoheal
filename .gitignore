@@ -105,10 +105,5 @@ $RECYCLE.BIN/
 uploads/*
 !uploads/.gitkeep
 
-client/release
-
-/.sonar/
-
-./backups
 backups
-backups/
+build

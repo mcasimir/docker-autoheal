@@ -1,10 +1,9 @@
-const {EventEmitter} = require('events');
-const monitor = require('node-docker-monitor');
-const Docker = require('dockerode');
-
-const HealthCheck = require('./HealthCheck');
-const packageName = require('./package').name;
-const debug = require('debug')(`${packageName}:Monitor`);
+import {EventEmitter} from 'events';
+import {autobind} from 'core-decorators';
+import monitor from 'node-docker-monitor';
+import Docker from 'dockerode-promise-es6';
+import HealthCheck from './HealthCheck';
+import {debug} from './logger';
 
 class Monitor extends EventEmitter {
   constructor(options = {}) {
@@ -13,6 +12,7 @@ class Monitor extends EventEmitter {
     this.containers = {};
   }
 
+  @autobind
   onContainerUp(containerInfo) {
     debug('container up', containerInfo.Name, containerInfo.Id);
     let container = this.docker.getContainer(containerInfo.Id);
@@ -22,6 +22,7 @@ class Monitor extends EventEmitter {
     check.start();
   }
 
+  @autobind
   onContainerDown(containerInfo) {
     debug('container down', containerInfo.Name, containerInfo.Id);
     let check = this.containers[containerInfo.Id];
