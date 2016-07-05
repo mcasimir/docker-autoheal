@@ -14,22 +14,21 @@ class Monitor extends EventEmitter {
   }
 
   onContainerUp(containerInfo) {
-    debug('container up', containerInfo.Name);
+    debug('container up', containerInfo.Name, containerInfo.Id);
     let container = this.docker.getContainer(containerInfo.Id);
     let check = new HealthCheck(container, containerInfo);
-    this.containers[container.Id] = check;
+    this.containers[containerInfo.Id] = check;
     check.on('unhealthy', this.restartUnhealthyContainer.bind(this));
     check.start();
   }
 
-  onContainerDown(container) {
-    debug('container down', container.Name);
-
-    let check = this.containers[container.Id];
+  onContainerDown(containerInfo) {
+    debug('container down', containerInfo.Name, containerInfo.Id);
+    let check = this.containers[containerInfo.Id];
     if (check) {
       check.stop();
       check.removeAllListeners('unhealthy');
-      delete this.containers[container.Id];
+      delete this.containers[containerInfo.Id];
     }
   }
 
