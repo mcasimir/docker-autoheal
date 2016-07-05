@@ -10,7 +10,7 @@
     "docker:run": "docker rm -f autoheal || npm run docker:build && docker run --name=autoheal --rm -e DEBUG='docker-autoheal:*' -v /var/run/docker.sock:/var/run/docker.sock mcasimir/docker-autoheal",
     "docker:build": "docker build -t mcasimir/docker-autoheal .",
     "docker:tag": "npm run docker:build && docker tag mcasimir/docker-autoheal mcasimir/docker-autoheal:$npm_package_version",
-    "docker:push": "npm run docker:build && npm run docker:tag && docker push mcasimir/docker-autoheal"
+    "docker:push": "npm run docker:tag && docker push mcasimir/docker-autoheal"
   },
   "author": "mcasimir (https://github.com/mcasimir)",
   "license": "ISC",
