@@ -1,0 +1,5 @@
+{
+  "labelPrefix": "com.github.mcasimir.autoheal.check.",
+  "defaultFrequency": 5000,
+  "defaultGrace": 10000
+}
