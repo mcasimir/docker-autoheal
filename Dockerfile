@@ -8,4 +8,4 @@ COPY . .
 
 RUN npm install --production
 
-CMD ["node", "build/index.js"]
+CMD ["node", "index.js"]
