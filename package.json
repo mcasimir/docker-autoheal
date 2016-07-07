@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run docker:run",
+    "dev": "nodemon dev.js",
     "start": "node index",
+    "test:server": "bash test/server/start-container.sh",
     "test": "mocha --timeout 15000 './test/**/*.spec.js'",
     "docker:run": "docker rm -f autoheal || npm run docker:build && docker run --name=autoheal --rm -e DEBUG='docker-autoheal:*' -v /var/run/docker.sock:/var/run/docker.sock mcasimir/docker-autoheal",
     "docker:build": "docker build -t mcasimir/docker-autoheal .",
@@ -15,9 +16,11 @@
   "author": "mcasimir (https://github.com/mcasimir)",
   "license": "ISC",
   "dependencies": {
+    "camelize-object": "1.0.2",
     "debug": "2.2.0",
     "dockerode": "2.2.10",
-    "node-docker-monitor": "1.0.9"
+    "node-docker-monitor": "1.0.9",
+    "winston": "2.2.0"
   },
   "devDependencies": {
     "mocha": "2.5.3",
